@@ -40,7 +40,7 @@ class WordModel(Graph):
                 word_list.append(self.node_to_class(word))
             return word_list
         except Exception as e:
-            print(e)
+            print
             return None
 
     def node_to_class(self, word_node):
