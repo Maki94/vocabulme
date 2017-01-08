@@ -1,5 +1,8 @@
+import random
+
 from config import Graph
 from classes import Word
+from neo4jrestclient import client
 
 
 class WordModel(Graph):
@@ -34,13 +37,40 @@ class WordModel(Graph):
 
     def get_words(self, n=12):
         try:
-            words = list(self._db.labels.get(self._label_adjective).all())[:n-1]
-            word_list = list()
-            for word in words:
-                word_list.append(self.node_to_class(word))
+            query = """
+                MATCH (n)
+                WHERE rand() < 0.01
+                return n limit """ + str(n) + """
+            """
+            results = list(self._db.query(query, returns=client.Node))
+            w_list = [self.node_to_class(word[0]) for word in results]
+            return w_list
+        except Exception as e:
+            print(e)
+            return None
+
+    def get_next_word(self):
+        try:
+            n = 4
+            query = """
+                MATCH (n)
+                WHERE rand() < 0.01
+                return n limit """ + str(n) + """
+            """
+            results = list(self._db.query(query, returns=client.Node))
+            word_list = [self.node_to_class(word[0]) for word in results]
+            random_list1 = random.sample(range(0, n), n)
+            random_list2 = random.sample(range(0, n), n)
+
+            for i in range(n):
+                temp = word_list[random_list1[i]].definition
+                word_list[random_list1[i]].definition = word_list[random_list2[i]].definition
+                word_list[random_list2[i]].definition = temp
+                if i != 0:
+                    word_list[i].name = ""
             return word_list
         except Exception as e:
-            print
+            print(e)
             return None
 
     def node_to_class(self, word_node):
@@ -53,3 +83,17 @@ class WordModel(Graph):
                 if self._label != label._label:
                     lab = label._label
         return Word(name, lab, definition)
+
+    def is_matched(self, word):
+        try:
+            query = """
+                match (n:Word{name:'""" + word.name + """', definition:'""" + word.definition + """'}) return n limit 1
+            """
+            results = list(self._db.query(query, returns=client.Node))
+            if results:
+                return True
+            else:
+                return False
+        except Exception as e:
+            print(e)
+            return False

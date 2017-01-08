@@ -9,6 +9,14 @@
     background-color: #29b6f6;
     cursor: pointer;
 }
+.wrong-definition{
+    color: #222222;
+    background-color: #ffcc80;
+}
+.correct-definition{
+    color: #222222;
+    background-color: #26a69a;
+}
 .word-example {
     color: #eeeeee;
     background-color: #26a69a;
@@ -21,4 +29,13 @@
     color: #222222;
     background-color: #29b6f6;
 }
-
+#skip-next{
+    color:#29b6f6;
+}
+#skip-next:hover{
+    color: #26a69a;
+    cursor: pointer;
+}
+#example-container{
+    display: none;
+}

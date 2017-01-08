@@ -16,10 +16,10 @@ def home():
         return render_template('500.html')
 
 
-@app.errorhandler(404)
-def page_not_found():
-    return render_template('404.html')
-
+# @app.errorhandler(404)
+# def page_not_found():
+#     return render_template('404.html')
+#
 
 if __name__ == "__main__":
     app.secret_key = os.urandom(24)
