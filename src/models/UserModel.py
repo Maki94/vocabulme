@@ -21,7 +21,7 @@ class UserModel(Graph):
     def get(self, user):
         try:
             person = self._db.labels.get(self._label).get(email=user.email)
-            if person[0]:
+            if person and person[0]:
                 return User(person[0].properties['email'], person[0].properties['password'])
         except Exception as e:
             print(e)
@@ -40,7 +40,7 @@ class UserModel(Graph):
 
     def is_valid(self, user):
         try:
-            person = self._db.labels.get(self._label).get(email=user.email, password=user.password)
+            person = self._db.labels.get(self._label).get(email=user.email)
             if person[0]:
                 return True
         except Exception as e:

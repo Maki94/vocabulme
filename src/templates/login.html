@@ -1,8 +1,46 @@
-{% extends 'template.html' %}
-
-{% block content %}
-    <form action="">
-        <input type="email" title="email">
-        <input type="password" title="password">
-    </form>
-{% endblock %}
+{#{% extends 'template.html' %}#}
+{##}
+{#{% block content %}#}
+{#    <form action="/login" method="POST">#}
+{#        <input name="email" type="email" title="email">#}
+{#        <input name="password" type="password" title="password">#}
+{#        <button type="submit">Submit</button>#}
+{#    </form>#}
+{#{% endblock %}#}
+<html>
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/jquery.webui-popover/1.2.1/jquery.webui-popover.min.css" rel="stylesheet" />
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#!" class="brand-logo">Logo</a>
+            <ul class="right hide-on-med-and-down">
+                <li><a id="login" href="#">Login</a></li>
+                <li><a href="badges.html">Components</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div id="login-form" class="webui-popover-content">
+        <form action="" method="post">
+            <div class="input-field">
+                <input type="text" placeholder="username">
+            </div>
+            <div class="input-field">
+                <input type="password" placeholder="password">
+            </div>
+            <button class="btn waves-effect waves-light" type="submit" name="action">Login
+                <i class="material-icons right">send</i>
+            </button>
+        </form>
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.webui-popover/1.2.1/jquery.webui-popover.min.js"></script>
+<script type="text/javascript">
+    $('#login').webuiPopover({url:'#login-form'});
+</script>
+</html>

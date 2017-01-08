@@ -1,12 +1,7 @@
-from flask import Flask, request, session, render_template
-from flask import flash
-from flask import redirect
-from flask import url_for
-# from wtforms import Form, TextField, StringField, PasswordField, BooleanField
-# from wtforms import validators
-from passlib.hash import sha256_crypt
-from functools import wraps
 import json
+from functools import wraps
+
+from flask import Flask, session
 
 from models.UserModel import UserModel
 from models.WordModel import WordModel
@@ -45,10 +40,10 @@ def get_all_users():
 @app.route('/get_words', methods=['GET', 'POST'])
 @validate_json
 def get_next_words():
-    # if session['logged_in']:
-    #     words = WordModel().get_words(14)
-    # else:
-    words = WordModel().get_words(12)
+    if 'logged_in' in session:
+        words = WordModel().get_words(14)  # TODO: make heuristics
+    else:
+        words = WordModel().get_words(12)  # TODO: return random words
 
     word_list = list()
     for word in words:
