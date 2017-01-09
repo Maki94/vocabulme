@@ -44,6 +44,3 @@ if __name__ == '__main__':
     #     page = wikipedia.page(item)
     #     print(page.title, page.content, page.categories, page.url)
     # print(item)
-    # TODO: make two choices twitter or wiki
-    # TODO: each call for the api should check does the item exist in the database
-    # TODO: make two keys for each key e.g. Abbot_wikipedia Abbot_twitter

@@ -10,7 +10,8 @@ $(document).ready(function () {
     var DEFINITION_CLASS = "word-definition card-panel";
     var WRONG_DEFINITION_CLASS = "word-definition card-panel wrong-definition";
     var CORRECT_DEFINITION_CLASS = "word-definition card-panel correct-definition";
-
+    var TWITTER_PARAGRAPH_CLASS = "word-example card-panel teal";
+    var WIKIPEDIA_PARAGRAPH_CLASS = "word-example card-panel teal";
     function removeMessages() {
         $('.flash-message').fadeOut();
     }
@@ -30,6 +31,9 @@ $(document).ready(function () {
 
     $("#skip-next").click(function () {
         $('.word-definition').each(function (i, obj) {
+            $(this).fadeOut('slow');
+        });
+        $('.word-example').each(function (i, obj) {
             $(this).fadeOut('slow');
         });
         $("#example-container").fadeOut();
@@ -54,8 +58,8 @@ $(document).ready(function () {
                 if (dataObject.data === "true") {
                     object.className = CORRECT_DEFINITION_CLASS;
                     $("#example-container").fadeIn();
-
-                    // TODO: FIll examples
+                    getTwitterExamples(word);
+                    setTimeout(getWikipediaExamples(word), 100);
                 } else {
                     object.className = WRONG_DEFINITION_CLASS;
                 }
@@ -71,7 +75,33 @@ $(document).ready(function () {
         }
     }
 
+    function getTwitterExamples(word){
+        var urlTwitterExamples = domainUrl + "/twitter-example/" + word.name + "/" + word.definition + "/" + word.label;
+        $.post(urlTwitterExamples, function (jsonData) {
+            var dataObject = JSON.parse(jsonData);
+            if (dataObject.success) {
+                console.log(dataObject);
+                var twitterContainer = $('#twitter');
+                for (var i in dataObject.data.statuses){
+                    twitterContainer.append("<p class='"+TWITTER_PARAGRAPH_CLASS+"'>"+dataObject.data.statuses[i]+"</p>");
+                }
+            }
+        })
+    }
+    function getWikipediaExamples(word){
+        var urlWikipediaExamples = domainUrl + "/wikipedia-example/" + word.name + "/" + word.definition + "/" + word.label;
+        $.post(urlWikipediaExamples, function (jsonData) {
+            var dataObject = JSON.parse(jsonData);
+            if (dataObject.success) {
+                console.log(dataObject);
+                var wikipediaContainer = $('#wikipedia');
+                for (var i in dataObject.data){
+                    wikipediaContainer.append("<p class='"+WIKIPEDIA_PARAGRAPH_CLASS+"'>"+dataObject.data[i]+"</p>");
+                }
+            }
+        })
+    }
     window.onload = function () {
         nextWord();
-    }
+    };
 });

@@ -1,11 +1,19 @@
+import redis
 from neo4jrestclient.client import GraphDatabase
-
-DATABASE = {
-    'connection': "http://localhost:7474",
-    'username': "neo4j",
-    "password": "admin"
-}
+from settings import DATABASE_NEO4J, DATABASE_REDIS
 
 
 class Graph:
-    _db = GraphDatabase(DATABASE["connection"], username=DATABASE["username"], password=DATABASE["password"])
+    _db = GraphDatabase(
+        url=DATABASE_NEO4J["connection"],
+        username=DATABASE_NEO4J["username"],
+        password=DATABASE_NEO4J["password"]
+    )
+
+
+class RedisDatabase:
+    _db = redis.StrictRedis(
+        host=DATABASE_REDIS['host'],
+        port=DATABASE_REDIS['port'],
+        db=DATABASE_REDIS['db']
+    )

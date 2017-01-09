@@ -1,4 +1,4 @@
-from .models import Graph
+from models import Graph
 import bs4 as bs
 import urllib.request
 
