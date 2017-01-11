@@ -27,3 +27,14 @@ class ExampleTwitterModel(RedisDatabase):
             if DetectLanguageAPI.is_english(status):
                 new_tweets.append(status)
         return new_tweets
+
+    @staticmethod
+    def trigger_database(word_list: list, start=0, end=5):
+        try:
+            w = ExampleTwitterModel()
+            for word in word_list:
+                ex = w.get_examples(word, start, end)
+                print(ex)
+        except Exception as e:
+            print(e)
+

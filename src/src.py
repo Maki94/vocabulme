@@ -87,9 +87,10 @@ def get_next_word():
     else:
         words = WordModel().get_next_word()
 
-    t = threading.Thread(target=ExampleWikipediaModel.trigger_database, args=(words, 0, 2))
-    t.start()
-    # t.join()
+    t_twitter = threading.Thread(target=ExampleTwitterModel.trigger_database, args=(words, 0, 5))
+    t_wikipedia = threading.Thread(target=ExampleWikipediaModel.trigger_database, args=(words, 0, 2))
+    t_twitter.start()
+    t_wikipedia.start()
     word_list = [word.get_dictionary() for word in words]
     return parse_json(word_list)
 
