@@ -49,7 +49,7 @@ class WordModel(Graph):
             print(e)
             return None
 
-    def get_next_word(self):
+    def get_next_word(self)->list():
         try:
             n = 4
             query = """

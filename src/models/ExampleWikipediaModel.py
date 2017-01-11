@@ -16,4 +16,15 @@ class ExampleWikipediaModel(RedisDatabase):
                 return []
             contents = wikis.get_contents()
             self._db.lpush(key, *contents)
-        return contents
+            return contents
+        return [c.decode('utf-8') for c in contents]
+
+    @staticmethod
+    def trigger_database(word_list: list, start=0, end=5):
+        try:
+            w = ExampleWikipediaModel()
+            for word in word_list:
+                ex = w.get_examples(word, start, end)
+                print(ex)
+        except Exception as e:
+            print(e)

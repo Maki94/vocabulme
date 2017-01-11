@@ -1,6 +1,7 @@
 import os
 import json
 import threading
+from concurrent.futures import thread
 from functools import wraps
 
 import pygal
@@ -52,7 +53,8 @@ def parse_json(data_list, success=True):
     try:
         return json.dumps({'data': data_list, 'success': success})
     except Exception as e:
-        return str(e)
+        print(e)
+        return json.dumps({'data': [], 'success': False})
 
 
 @app.route('/get_all_users', methods=['GET', 'POST', 'PUT', 'DELETE'])
@@ -85,8 +87,7 @@ def get_next_word():
     else:
         words = WordModel().get_next_word()
 
-    wiki_model = ExampleWikipediaModel()
-    t = threading.Thread(target=wiki_model.get_examples, args=(words, 0, 2))
+    t = threading.Thread(target=ExampleWikipediaModel.trigger_database, args=(words, 0, 2))
     t.start()
     # t.join()
     word_list = [word.get_dictionary() for word in words]

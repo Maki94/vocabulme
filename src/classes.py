@@ -54,7 +54,7 @@ class WikipediaExample:
 class TwitterExample:
     def __init__(self, word: Word, statuses: list):
         self.word = word
-        self.statuses = statuses
+        self.statuses = [status.decode("utf-8") for status in statuses]
 
     def __str__(self):
         return str(self.get_dictionary())

@@ -12,12 +12,15 @@ $(document).ready(function () {
     var CORRECT_DEFINITION_CLASS = "word-definition card-panel correct-definition";
     var TWITTER_PARAGRAPH_CLASS = "word-example card-panel teal";
     var WIKIPEDIA_PARAGRAPH_CLASS = "word-example card-panel teal";
+    var DONE_CLASS = "stop-answering";
+    
     function removeMessages() {
         $('.flash-message').fadeOut();
     }
 
     $(document.body).on("click", "p", function(){
-        if (this.className.indexOf("word-definition") != -1) {
+        var correctParagraph = $("."+DONE_CLASS);
+        if (this.className.indexOf("word-definition") != -1 && correctParagraph.length === 0) {
             if (this.className == WRONG_DEFINITION_CLASS || this.className == CORRECT_DEFINITION_CLASS) return;
             console.log(this.innerHTML);
             console.log(document.getElementById("word-name").innerHTML);
@@ -56,7 +59,7 @@ $(document).ready(function () {
             var dataObject = JSON.parse(jsonData);
             if (dataObject.success) {
                 if (dataObject.data) {
-                    object.className = CORRECT_DEFINITION_CLASS;
+                    object.className = CORRECT_DEFINITION_CLASS+" "+DONE_CLASS;
                     seenWord(word, 1);
                     $("#example-container").fadeIn();
                     getTwitterExamples(word);
@@ -117,7 +120,5 @@ $(document).ready(function () {
             }
         })
     }
-    window.onload = function () {
-        nextWord();
-    };
+    nextWord();
 });
