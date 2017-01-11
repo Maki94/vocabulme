@@ -49,6 +49,18 @@ def validate_json(f):
     return wrap
 
 
+def login_required(f):
+    @wraps(f)
+    def wrap(*args, **kwargs):
+        if 'logged_in' in session:
+            return f(*args, **kwargs)
+        else:
+            flash("You need to login first", "warning")
+            return redirect(url_for('home'))
+
+    return wrap
+
+
 def parse_json(data_list, success=True):
     try:
         return json.dumps({'data': data_list, 'success': success})
@@ -83,16 +95,20 @@ def get_next_words():
 @validate_json
 def get_next_word():
     if 'logged_in' in session:
-        words = WordModel().get_next_word()
+        logged_user = User(email=session['logged_in'])
+        word_view_list = UserModel().get_recommended_model_list(logged_user)
     else:
-        words = WordModel().get_next_word()
+        word_view_list = UserModel().get_recommended_model_list()
+
+    words = [word.word for word in word_view_list]
 
     t_twitter = threading.Thread(target=ExampleTwitterModel.trigger_database, args=(words, 0, 5))
     t_wikipedia = threading.Thread(target=ExampleWikipediaModel.trigger_database, args=(words, 0, 2))
     t_twitter.start()
     t_wikipedia.start()
-    word_list = [word.get_dictionary() for word in words]
-    return parse_json(word_list)
+
+    model_list = [word_model.get_dictionary() for word_model in word_view_list]
+    return parse_json(model_list)
 
 
 @app.route("/check_word/<word_name>/<word_definition>/<word_label>", methods=['POST'])
@@ -118,12 +134,23 @@ def twitter_get_examples(word_name, word_definition, word_label):
 @app.route('/seen-word/<word_name>/<word_definition>/<word_label>/<int:correct>', methods=['POST'])
 @validate_json
 def seen_word(word_name: str, word_definition: str, word_label: str, correct: int):
-    if 'logged_in' in session and 'email' in session:
-        email = session['email']
-        userModel = UserModel()
-        userModel.seen_word(user=User(email), word=Word(word_name, word_label, word_definition),
-                            correct=False if correct == 0 else True)
-        return parse_json(True)
+    """
+        correct: 0 => incorrect
+        correct: 1 => correct
+    """
+    if 'logged_in' in session:
+        if 'email' in session:
+            email = session['email']
+            userModel = UserModel()
+            if correct == 0:
+                userModel.seen_word(user=User(email), word=Word(word_name, word_label, word_definition), correct=False)
+            elif correct == 1:
+                userModel.seen_word(user=User(email), word=Word(word_name, word_label, word_definition), correct=True)
+            else:
+                raise Exception("Invalid correct argument, function seen_word")
+            return parse_json(True)
+        else:
+            print(session['logged_in'])
     else:
         return parse_json(False)
 
@@ -150,21 +177,44 @@ def graph():
     return render_template('graph.html', graph_data=graph_data)
 
 
+@app.route('/finished', methods=['GET'])
+@login_required
+def finished_round():
+
+    user = User(session['email'])
+    user_model = UserModel()
+    word_list_view = user_model.get_word_list_view(user)
+    seen_list = word_list_view.seen_word_list
+    learnt_list = word_list_view.learnt_word_list
+    forgotten_list = word_list_view.forgotten_word_list
+
+    # graph_pygal = pygal.Line()
+    # graph_pygal.title = '% Change Coolness of programming languages over time.'
+    # graph_pygal.x_labels = ['2011', '2012', '2013', '2014', '2015', '2016']
+    # graph_pygal.add('Python', [15, 31, 89, 200, 356, 900])
+    # graph_pygal.add('Java', [15, 45, 76, 80, 91, 95])
+    # graph_pygal.add('C++', [5, 51, 54, 102, 150, 201])
+    # graph_pygal.add('All others combined!', [5, 15, 21, 55, 92, 105])
+
+    pie_chart = pygal.Pie()
+    pie_chart.title = 'TITLE'
+    pie_chart.add('Seen Words', WordModel.get_number_labels(seen_list))
+    pie_chart.add('Forgotten Words', WordModel.get_number_labels(forgotten_list))
+    pie_chart.add('Learnt Words', WordModel.get_number_labels(learnt_list))
+    pie_chart.render()
+    graph_data = pie_chart.render_data_uri()
+
+    return render_template('list.html',
+                           seen_list=seen_list,
+                           learnt_list=learnt_list,
+                           forgotten_list=forgotten_list,
+                           graph_data=graph_data
+                           )
+
+
 """
     User procedures
 """
-
-
-def login_required(f):
-    @wraps(f)
-    def wrap(*args, **kwargs):
-        if 'logged_in' in session:
-            return f(*args, **kwargs)
-        else:
-            flash("You need to login first")
-            return redirect(url_for('login_page'))
-
-    return wrap
 
 
 @app.route("/logout")

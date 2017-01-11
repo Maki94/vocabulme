@@ -1,6 +1,8 @@
+import random
+
 from neo4jrestclient import client
 
-from classes import User, Word
+from classes import User, Word, WordView, WordListView
 from config import Graph
 from models.WordModel import WordModel
 
@@ -73,24 +75,15 @@ class UserModel(Graph):
                 acc = self.get_accuracy(result_correct, result_incorrect)
                 label = self.get_label(acc)
 
-                delete_query = """
-                        MATCH (u:%s{email:"%s"})-[r]-(w:Word{name:"%s"})
-                        DELETE r
-                    """ % (self._label, user.email, word.name)
-                ex = self._db.query(delete_query)
-                print(ex)
-                change_query = """
-                        CREATE (u:%s{email:"%s"})-[new:%s{correct: %d, incorrect: %d}]->(w:Word{name:"%s"})
-                        return new.correct, new.incorrect
-                    """ % (self._label, user.email, label, result_correct, result_incorrect,word.name)
+                q = """
+                    MATCH (u:User{email:"%s"})-[r]-(w:Word{name:"%s"})
+                    CREATE (u)-[newR:%s{correct:%d, incorrect:%d}]->(w)
+                    delete r
+                    return newR.correct, newR.incorrect
+                """ % (user.email, word.name, label, result_correct, result_incorrect)
 
-                # query = """
-                #     MATCH (u:%s{email:"%s"})-[r:%s]-(w:Word{name:"%s"})
-                #     SET r.correct=%d, r.incorrect=%d
-                #     return r
-                # """ % (self._label, user.email, self._seen, word.name, result_correct, result_incorrect)
                 print(acc)
-                new_seen = self._db.query(change_query)
+                new_seen = self._db.query(q)
                 print(new_seen)
             else:
                 user_node = self.get_node(user)
@@ -105,83 +98,82 @@ class UserModel(Graph):
         except Exception as e:
             print(e)
 
-    def get_recommended_words(self):
+    def get_forgotten_words(self, user: User) -> list:
         try:
-            n = 4
             query = """
-                MATCH (n)
-                WHERE rand() < 0.01
-                return n limit """ + str(n) + """
-            """
-            results = list(self._db.query(query, returns=client.Node))
-            word_list = [self.node_to_class(word[0]) for word in results]
-            random_list1 = random.sample(range(0, n), n)
-            random_list2 = random.sample(range(0, n), n)
-
-            for i in range(n):
-                temp = word_list[random_list1[i]].definition
-                word_list[random_list1[i]].definition = word_list[random_list2[i]].definition
-                word_list[random_list2[i]].definition = temp
-                if i != 0:
-                    word_list[i].name = ""
-            return word_list
+                MATCH (u:User{email:"%s"})-[:Forgotten]->(forgottenWords:Word)
+                RETURN forgottenWords LIMIT %d
+            """ % (user.email, self.word_set * 4)
+            results = self._db.query(query)
+            return WordModel.parse_words(results)
         except Exception as e:
             print(e)
-            return None
+            return []
 
-    def change_recommendation(self, user):
+    def get_recommended_words(self, user: User) -> list:
         try:
             query = """
                 MATCH (u:User{email:"%s"})-[:Seen]->(w)<-[:Seen]-(colleges:User),
-                      (colleges)-[:Seen]->(recW:Word),
-                      (u)-[:Forgotten]->(forgottenWords:Word)
+                      (colleges)-[:Seen]->(recW:Word)
                 WHERE NOT (u)-[:Seen]->(recW) AND NOT (w)-[:Learnt]->(recW) AND NOT (w)-[:Forgotten]->(recW)
-                RETURN recW, forgottenWords LIMIT %d
-            """ % (user.email, self.word_set)
+                RETURN recW LIMIT %d
+            """ % (user.email, self.word_set * 4)
             results = self._db.query(query)
-            word_list = list()
-            if results:
-                for element in results.elements:
-                    word_name = element[0]['data']['name']
-                    word_definition = element[0]['data']['definition']
-                    word_label = WordModel().get_label(element[0]['metadata']['labels'])
-
-                    word_recW = Word(word_name, word_label, word_definition)
-
-                    word_list.append(word_recW)
-
-
-                    # query = """
-                    #     MATCH (u:%s{email:"%s"})-[r:%s]-(w:Word)
-                    #     return w, r.correct, r.incorrect
-                    # """ % (self._label, user.email, self._seen)
-
-                    # accuracy = list()
-                    # results = Graph._db.query(query)
-                    # avg_accuracy = 0
-                    # for element in results.elements:
-                    #     word = element[0]
-                    #     correct = element[1]
-                    #     incorrect = element[2]
-                    #     if isinstance(correct, int) and isinstance(incorrect, int):
-                    #         acc = self.get_accuracy(correct, incorrect)
-                    #         avg_accuracy += acc
-                    #         accuracy.append([word, acc])
-                    # if len(accuracy) < self.word_set:
-                    #     return
-                    #     # for a in accuracy:
-                    #     #     print(a[1])
-
+            return WordModel.parse_words(results)
         except Exception as e:
             print(e)
+            return []
+
+    def get_recommended_model_list(self, user=None) -> list:
+        try:
+            recommended_words = list()
+            if user:
+                recommended_words = self.get_forgotten_words(user) + self.get_recommended_words(user)
+            if len(recommended_words) < self.word_set * 4:
+                recommended_words = recommended_words + self.get_random_recommendation()
+
+            recommended_words = recommended_words[:self.word_set * 4]
+
+            return self.shuffle_recommendation_model(recommended_words)
+        except Exception as e:
+            print(e)
+            return []
+
+    def get_random_recommendation(self) -> list:
+        try:
+            query = """
+                MATCH (w:Word)
+                WHERE rand() < 0.5
+                return w limit %d
+            """ % (self.word_set * 4)
+            results = self._db.query(query)
+            return WordModel.parse_words(results)
+        except Exception as e:
+            print(e)
+            return []
+
+    def shuffle_recommendation_model(self, recommended_words) -> list:
+        random_list_words = random.sample(range(0, len(recommended_words)), len(recommended_words))[:self.word_set]
+
+        recommended_model = list()
+        for i in random_list_words:
+            definitions = []
+            for j in random.sample(range(0, 4), 4):
+                if j == 2:
+                    definitions.append(recommended_words[i].definition)
+                else:
+                    definitions.append(recommended_words[random.randint(0, len(recommended_words) - 1)].definition)
+            model = WordView(recommended_words[i], definitions)
+            recommended_model.append(model)
+        return recommended_model
 
     def get_accuracy(self, correctness, incorrectness):
         return correctness / (correctness + incorrectness + self._accuracy_rate)
 
     def get_label(self, percents):
-        if percents >= 0.80:
+        if percents >= 0.70:
             return self._learnt
-        elif percents <= 0.50:
+        elif percents <= 0.40:
             return self._forgotten
         return self._seen
 
@@ -196,33 +188,37 @@ class UserModel(Graph):
             print(e)
             return None
 
+    def get_word_list_view(self, user: User) -> WordListView:
+        # query = """
+        #     optional match (u:User{email:"%s"})-[:Seen]->(wSeen:Word)
+        #     optional match (u)-[:Forgotten]->(wForgotten:Word)
+        #     optional match (u)-[:Learnt]->(wLearnt:Word)
+        #     return wSeen, wForgotten, wLearnt
+        # """ % user.email
+        query = """
+            match (u:User{email:"%s"})-[:Seen]->(wSeen:Word)
+            return wSeen
+        """ % user.email
+        results = self._db.query(query)
+        seen_list = WordModel.parse_words(results)
 
-if __name__ == '__main__':
-    print("hello")
-    user_model = UserModel()
-    word_model = WordModel()
-    Marko = User("markomihajlovicfm@gmail.com")
-    Alter = Word("Alter", "", "")
-    Abject = Word("Abject", "", "")
-    Abdicate = Word("Abdicate", "", "")
-    user_model.seen_word(Marko, Abject, True)
-    # Pr = User("pr@gmail.com")
-    # user_model.seen_word(Pr, Abdicate, True)
-    # user_model.change_recommendation(Marko)
+        query = """
+            match (u:User{email:"%s"})-[:Forgotten]->(wForgotten:Word)
+            return wForgotten
+        """ % user.email
+        results = self._db.query(query)
+        forgotten_list = WordModel.parse_words(results)
 
-    # query = """
-    #                 MATCH (u:User{email:"markomihajlovicfm@gmail.com"})-[r:Seen]-(w:Word)
-    #                 return w, r.correct, r.incorrect
-    #             """
-    # accuracy = list()
-    # results = Graph._db.query(query)
-    # for element in results.elements:
-    #     word = element[0]
-    #     correct = element[1]
-    #     incorrect = element[2]
-    #     if isinstance(correct, int) and isinstance(incorrect, int):
-    #         accuracy.append({'word': word, 'accuracy': correct/(correct+incorrect)})
-    #     else:
-    #         print(correct, incorrect)
-    # for a in accuracy:
-    #     print(a["accuracy"])
+        query = """
+            match (u:User{email:"%s"})-[:Learnt]->(wLearnt:Word)
+            return wLearnt
+        """ % user.email
+        results = self._db.query(query)
+        learnt_list = WordModel.parse_words(results)
+
+        # for element in results.elements:
+        #     seen_list.append(element[0])
+        #     forgotten_list.append(element[1])
+        #     learnt_list.append(element[2])
+
+        return WordListView(seen_list, learnt_list, forgotten_list)

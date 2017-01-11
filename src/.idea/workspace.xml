@@ -2,9 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8c24b553-f39b-4706-99d3-bd039c38bf4e" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/js/WordView.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/list.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/testSrc.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/src.iml" afterPath="$PROJECT_DIR$/.idea/src.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/ExampleTwitterModel.py" afterPath="$PROJECT_DIR$/models/ExampleTwitterModel.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/API/DetectLanguageAPI.py" afterPath="$PROJECT_DIR$/API/DetectLanguageAPI.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes.py" afterPath="$PROJECT_DIR$/classes.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/ExampleWikipediaModel.py" afterPath="$PROJECT_DIR$/models/ExampleWikipediaModel.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/UserModel.py" afterPath="$PROJECT_DIR$/models/UserModel.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/WordModel.py" afterPath="$PROJECT_DIR$/models/WordModel.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src.py" afterPath="$PROJECT_DIR$/src.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/script.js" afterPath="$PROJECT_DIR$/static/js/script.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/graph.html" afterPath="$PROJECT_DIR$/templates/graph.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/header.html" afterPath="$PROJECT_DIR$/templates/header.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/home.html" afterPath="$PROJECT_DIR$/templates/home.html" />
     </list>
     <ignored path="src.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -19,14 +31,15 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/src$redis.coverage" NAME="redis Coverage Results" MODIFIED="1483899794635" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/src$twitter.coverage" NAME="twitter Coverage Results" MODIFIED="1483951669332" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/src$userModel.coverage" NAME="userModel Coverage Results" MODIFIED="1484087553065" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models" />
+    <SUITE FILE_PATH="coverage/src$userModel.coverage" NAME="userModel Coverage Results" MODIFIED="1484171036706" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models" />
     <SUITE FILE_PATH="coverage/src$detectLanguage.coverage" NAME="detectLanguage Coverage Results" MODIFIED="1483995642362" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/API" />
     <SUITE FILE_PATH="coverage/src$Unnamed__1_.coverage" NAME="Unnamed (1) Coverage Results" MODIFIED="1483562079335" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/src$fillDb.coverage" NAME="fillDb Coverage Results" MODIFIED="1484089746978" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/src$Unnamed.coverage" NAME="Unnamed Coverage Results" MODIFIED="1483480870154" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/src$src.coverage" NAME="src Coverage Results" MODIFIED="1484124328614" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/src$src.coverage" NAME="src Coverage Results" MODIFIED="1484178434030" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/src$test.coverage" NAME="test Coverage Results" MODIFIED="1483963632439" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/src$pygal.coverage" NAME="pygal Coverage Results" MODIFIED="1483999905323" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/src$testSrc.coverage" NAME="testSrc Coverage Results" MODIFIED="1484172443620" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -40,44 +53,90 @@
       <file leaf-file-name="src.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="776">
-              <caret line="93" column="0" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
+            <state relative-caret-position="130">
+              <caret line="79" column="0" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
                 <element signature="e#552#588#0" expanded="false" />
                 <element signature="e#623#761#0" expanded="false" />
-                <element signature="e#4122#4654#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_reloader.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../env/Lib/site-packages/werkzeug/_reloader.py">
+      <file leaf-file-name="subprocess.py" pinned="false" current-in-tab="false">
+        <entry file="file://C:/Program Files (x86)/Python35-32/Lib/subprocess.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="463">
-              <caret line="142" column="0" selection-start-line="142" selection-start-column="0" selection-end-line="142" selection-end-column="0" />
+            <state relative-caret-position="1357">
+              <caret line="1276" column="0" selection-start-line="1276" selection-start-column="0" selection-end-line="1276" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="script.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/js/script.js">
+      <file leaf-file-name="app.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../env/Lib/site-packages/flask/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1020">
-              <caret line="60" column="20" selection-start-line="60" selection-start-column="20" selection-end-line="60" selection-end-column="20" />
+            <state relative-caret-position="1041">
+              <caret line="1631" column="19" selection-start-line="1631" selection-start-column="19" selection-end-line="1631" selection-end-column="19" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ExampleTwitterModel.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/ExampleTwitterModel.py">
+      <file leaf-file-name="list.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/list.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="884">
+              <caret line="52" column="47" selection-start-line="52" selection-start-column="47" selection-end-line="52" selection-end-column="47" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="header.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/header.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="51">
-              <caret line="6" column="25" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="25" />
+              <caret line="3" column="51" selection-start-line="3" selection-start-column="51" selection-end-line="3" selection-end-column="51" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserModel.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/UserModel.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1083">
+              <caret line="163" column="21" selection-start-line="163" selection-start-column="21" selection-end-line="163" selection-end-column="21" />
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
+                <element signature="e#600#785#0" expanded="false" />
+                <element signature="e#820#1120#0" expanded="false" />
+                <element signature="e#1429#1654#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="graph.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/graph.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="35" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="classes.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/classes.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="558">
+              <caret line="43" column="27" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="29" />
+              <folding>
+                <marker date="1484170997206" expanded="true" signature="1048:1197" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -85,21 +144,11 @@
       <file leaf-file-name="WordModel.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models/WordModel.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="836">
-              <caret line="51" column="35" selection-start-line="51" selection-start-column="35" selection-end-line="51" selection-end-column="35" />
+            <state relative-caret-position="664">
+              <caret line="64" column="25" selection-start-line="64" selection-start-column="8" selection-end-line="64" selection-end-column="25" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ExampleWikipediaModel.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/ExampleWikipediaModel.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -111,8 +160,8 @@
       <list>
         <option value="Flask Main" />
         <option value="CSS File" />
-        <option value="JavaScript File" />
         <option value="HTML File" />
+        <option value="JavaScript File" />
         <option value="Python Script" />
       </list>
     </option>
@@ -123,9 +172,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/templates/_formhelpers.html" />
-        <option value="$PROJECT_DIR$/__init)).py" />
-        <option value="$PROJECT_DIR$/fillDb.py" />
         <option value="$PROJECT_DIR$/__init__.py" />
         <option value="$PROJECT_DIR$/src/__init__.py" />
         <option value="$PROJECT_DIR$/src/fillDb.py" />
@@ -143,7 +189,6 @@
         <option value="$PROJECT_DIR$/templates/login.html" />
         <option value="$PROJECT_DIR$/templates/footer.html" />
         <option value="$PROJECT_DIR$/templates/messages.html" />
-        <option value="$PROJECT_DIR$/templates/header.html" />
         <option value="$PROJECT_DIR$/userServices.py" />
         <option value="$PROJECT_DIR$/services.py" />
         <option value="$PROJECT_DIR$/static/css/style.css" />
@@ -160,20 +205,24 @@
         <option value="$PROJECT_DIR$/Services/userServices.py" />
         <option value="$PROJECT_DIR$/API/TwitterAPI.py" />
         <option value="$PROJECT_DIR$/settings.py" />
-        <option value="$PROJECT_DIR$/API/DetectLanguageAPI.py" />
         <option value="$PROJECT_DIR$/tests/twitter.py" />
         <option value="$PROJECT_DIR$/tests/pygalGraph.py" />
-        <option value="$PROJECT_DIR$/templates/graph.html" />
-        <option value="$PROJECT_DIR$/templates/home.html" />
         <option value="$PROJECT_DIR$/API/WikipediaAPI.py" />
-        <option value="$PROJECT_DIR$/models/UserModel.py" />
         <option value="$PROJECT_DIR$/tests/models.py" />
-        <option value="$PROJECT_DIR$/static/js/script.js" />
-        <option value="$PROJECT_DIR$/classes.py" />
-        <option value="$PROJECT_DIR$/models/WordModel.py" />
         <option value="$PROJECT_DIR$/models/ExampleWikipediaModel.py" />
         <option value="$PROJECT_DIR$/models/ExampleTwitterModel.py" />
+        <option value="$PROJECT_DIR$/API/DetectLanguageAPI.py" />
+        <option value="$PROJECT_DIR$/static/js/WordView.js" />
+        <option value="$PROJECT_DIR$/templates/home.html" />
+        <option value="$PROJECT_DIR$/static/js/script.js" />
+        <option value="$PROJECT_DIR$/templates/graph.html" />
+        <option value="$PROJECT_DIR$/classes.py" />
+        <option value="$PROJECT_DIR$/testSrc.py" />
+        <option value="$PROJECT_DIR$/templates/header.html" />
+        <option value="$PROJECT_DIR$/models/WordModel.py" />
+        <option value="$PROJECT_DIR$/templates/list.html" />
         <option value="$PROJECT_DIR$/src.py" />
+        <option value="$PROJECT_DIR$/models/UserModel.py" />
       </list>
     </option>
   </component>
@@ -233,29 +282,15 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="API" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/tests/models.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/testSrc.py" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
     <property name="restartRequiresConfirmation" value="false" />
@@ -499,7 +534,7 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="test" type="PythonConfigurationType" factoryName="Python">
+    <configuration default="false" name="testSrc" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -512,7 +547,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="src" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="C:\Users\maki\Documents\Projects\VocabulMe\src\tests\test.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/testSrc.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -591,7 +626,7 @@
     </configuration>
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Python.src" />
-      <item index="1" class="java.lang.String" itemvalue="Python.test" />
+      <item index="1" class="java.lang.String" itemvalue="Python.testSrc" />
       <item index="2" class="java.lang.String" itemvalue="Python.twitter" />
       <item index="3" class="java.lang.String" itemvalue="Python.redis" />
       <item index="4" class="java.lang.String" itemvalue="Python.fillDb" />
@@ -619,7 +654,14 @@
       <option name="project" value="LOCAL" />
       <updated>1484124782036</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="thread twitter">
+      <created>1484125025045</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1484125025045</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TodoView">
@@ -635,18 +677,18 @@
     <frame x="1358" y="-1153" width="1096" height="1936" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15637065" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2606438" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16216215" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17138103" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.213533" sideWeight="0.27992278" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32667777" sideWeight="0.49227798" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889628" sideWeight="0.49227798" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18469217" sideWeight="0.496139" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16805324" sideWeight="0.496139" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24903475" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33499724" sideWeight="0.496139" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.213533" sideWeight="0.7200772" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21297836" sideWeight="0.7200772" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -669,7 +711,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="thread wiki" />
-    <option name="LAST_COMMIT_MESSAGE" value="thread wiki" />
+    <MESSAGE value="thread twitter" />
+    <option name="LAST_COMMIT_MESSAGE" value="thread twitter" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -683,26 +726,6 @@
           <url>file://$PROJECT_DIR$/Services/userServices.py</url>
           <option name="timeStamp" value="72" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/models/UserModel.py</url>
-          <line>207</line>
-          <option name="timeStamp" value="146" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/models/UserModel.py</url>
-          <line>64</line>
-          <option name="timeStamp" value="147" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/models/UserModel.py</url>
-          <line>81</line>
-          <option name="timeStamp" value="148" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/src.py</url>
-          <line>55</line>
-          <option name="timeStamp" value="163" />
-        </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
@@ -711,7 +734,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="166" />
+      <option name="time" value="215" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
@@ -725,47 +748,11 @@
         <watch expression="session" language="Python" />
         <watch expression="correct" language="Python" />
         <watch expression="e.options[0]" language="Python" />
+        <watch expression="session" />
       </configuration>
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Classes/User.py" />
-    <entry file="file://$PROJECT_DIR$/Classes/Word.py" />
-    <entry file="file://$PROJECT_DIR$/models/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Program Files (x86)/Python35-32/Lib/http/server.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6902">
-          <caret line="422" column="0" selection-start-line="422" selection-start-column="0" selection-end-line="422" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Program Files (x86)/Python35-32/Lib/socketserver.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="234" column="0" selection-start-line="234" selection-start-column="0" selection-end-line="234" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/register.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="29" column="43" selection-start-line="29" selection-start-column="43" selection-end-line="29" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="15" column="7" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/footer.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
@@ -787,24 +774,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/header.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="54" selection-start-line="2" selection-start-column="50" selection-end-line="2" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/css/materialize.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="20553">
           <caret line="1209" column="1" selection-start-line="1209" selection-start-column="1" selection-end-line="1209" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="19" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -896,21 +869,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/API/DetectLanguageAPI.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="23" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/API/TwitterAPI.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="17" column="8" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -935,48 +897,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/graph.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../env/Lib/site-packages/werkzeug/debug/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="295" column="0" selection-start-line="295" selection-start-column="0" selection-end-line="295" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../env/Lib/site-packages/werkzeug/serving.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="260" column="29" selection-start-line="260" selection-start-column="29" selection-end-line="260" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/Program Files (x86)/Python35-32/Lib/threading.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="532">
           <caret line="894" column="11" selection-start-line="894" selection-start-column="11" selection-end-line="894" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/API/WikipediaAPI.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="15" column="10" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
           <folding />
         </state>
       </provider>
@@ -986,110 +910,228 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="3" column="21" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/UserModel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2023">
-          <caret line="169" column="49" selection-start-line="169" selection-start-column="49" selection-end-line="169" selection-end-column="49" />
-          <folding>
-            <element signature="e#0#34#0" expanded="true" />
-            <element signature="e#561#746#0" expanded="false" />
-            <element signature="e#781#1081#0" expanded="false" />
-            <element signature="e#1121#1350#0" expanded="false" />
-            <element signature="e#1390#1615#0" expanded="false" />
-            <element signature="e#3897#4753#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../env/Lib/site-packages/werkzeug/_reloader.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="463">
+        <state relative-caret-position="2278">
           <caret line="142" column="0" selection-start-line="142" selection-start-column="0" selection-end-line="142" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/script.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1020">
-          <caret line="60" column="20" selection-start-line="60" selection-start-column="20" selection-end-line="60" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/WordModel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="836">
-          <caret line="51" column="35" selection-start-line="51" selection-start-column="35" selection-end-line="51" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/models/ExampleWikipediaModel.py">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/API/WikipediaAPI.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/API/DetectLanguageAPI.py">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
-          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Program Files (x86)/Python35-32/Lib/subprocess.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1339">
-          <caret line="1274" column="0" selection-start-line="1274" selection-start-column="0" selection-end-line="1274" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="455">
-          <caret line="109" column="21" selection-start-line="109" selection-start-column="21" selection-end-line="109" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="645">
+          <caret line="140" column="0" selection-start-line="140" selection-start-column="0" selection-end-line="141" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../env/Lib/site-packages/flask/app.py">
+    <entry file="file://$PROJECT_DIR$/static/js/WordView.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1597" column="0" selection-start-line="1597" selection-start-column="0" selection-end-line="1597" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="3" selection-start-line="13" selection-start-column="3" selection-end-line="13" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../env/Lib/site-packages/werkzeug/debug/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4488">
+          <caret line="287" column="0" selection-start-line="287" selection-start-column="0" selection-end-line="287" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files (x86)/Python35-32/Lib/http/server.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6902">
+          <caret line="422" column="0" selection-start-line="422" selection-start-column="0" selection-end-line="422" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../env/Lib/site-packages/werkzeug/serving.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3910">
+          <caret line="235" column="0" selection-start-line="235" selection-start-column="0" selection-end-line="235" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files (x86)/Python35-32/Lib/socketserver.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3859">
+          <caret line="230" column="41" selection-start-line="230" selection-start-column="41" selection-end-line="230" selection-end-column="41" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/models/ExampleTwitterModel.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="6" column="25" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="25" />
+        <state relative-caret-position="289">
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="33" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../env/Lib/site-packages/bs4/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="816">
+          <caret line="354" column="39" selection-start-line="354" selection-start-column="39" selection-end-line="354" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/script.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="617">
+          <caret line="118" column="51" selection-start-line="118" selection-start-column="42" selection-end-line="118" selection-end-column="51" />
+          <folding>
+            <element signature="e#0#40#0" expanded="false" />
+            <element signature="e#5287#5909#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testSrc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+            <marker date="1484173150561" expanded="true" signature="130:301" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/graph.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="35" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="558">
+          <caret line="43" column="27" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="29" />
+          <folding>
+            <marker date="1484170997206" expanded="true" signature="1048:1197" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/header.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="51" selection-start-line="3" selection-start-column="51" selection-end-line="3" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/WordModel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="664">
+          <caret line="64" column="25" selection-start-line="64" selection-start-column="8" selection-end-line="64" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="884">
+          <caret line="52" column="47" selection-start-line="52" selection-start-column="47" selection-end-line="52" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../env/Lib/site-packages/pygal/graph/public.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="629">
+          <caret line="41" column="26" selection-start-line="41" selection-start-column="26" selection-end-line="41" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../env/Lib/site-packages/flask/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1041">
+          <caret line="1631" column="19" selection-start-line="1631" selection-start-column="19" selection-end-line="1631" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files (x86)/Python35-32/Lib/subprocess.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1357">
+          <caret line="1276" column="0" selection-start-line="1276" selection-start-column="0" selection-end-line="1276" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/UserModel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1083">
+          <caret line="163" column="21" selection-start-line="163" selection-start-column="21" selection-end-line="163" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#600#785#0" expanded="false" />
+            <element signature="e#820#1120#0" expanded="false" />
+            <element signature="e#1429#1654#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="776">
-          <caret line="93" column="0" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
+        <state relative-caret-position="130">
+          <caret line="79" column="0" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
             <element signature="e#552#588#0" expanded="false" />
             <element signature="e#623#761#0" expanded="false" />
-            <element signature="e#4122#4654#0" expanded="false" />
           </folding>
         </state>
       </provider>

@@ -1,0 +1,64 @@
+{% extends 'template.html' %}
+
+{% macro word_html(name, label, definition) -%}
+    <p class="white-text">
+        <span class="black-text text-lighten-4">
+            {{ name }}
+        </span>
+        <small class="{{ label | lower }}">
+            {{ label | lower }}
+        </small>
+        {{ definition }}
+    </p>
+{%- endmacro %}
+
+
+{% block content %}
+    <main>
+        <div class="container">
+            <div class="section">
+                <div class="row">
+                    <div class="col s12 m10 offset-m1">
+                        <div class="card">
+                            <div class="card-image">
+                                <embed src="{{ graph_data }}" type="image/svg+xml" data-file-width="370px"></embed>
+                                <span class="card-title">Card Title</span>
+                            </div>
+                            <div class="card-content">
+                                <div class="row">
+                                        <div class="col s12 m12">
+                                    {% if seen_list %}
+                                            <div class="card-panel teal word-container">
+                                                <h5>Seen words</h5>
+                                                {% for word in seen_list %}
+                                                    {{ word_html(word['name'], word['label'],word['definition']) }}
+                                                {% endfor %}
+                                            </div>
+                                    {% endif %}
+                                    {% if forgotten_list %}
+                                            <div class="card-panel teal word-container">
+                                                <h5>Forgotten words</h5>
+                                                {% for word in forgotten_list %}
+                                                    {{ word_html(word['name'], word['label'],word['definition']) }}
+                                                {% endfor %}
+                                            </div>
+                                    {% endif %}
+                                        {% if forgotten_list %}
+                                            <div class="card-panel teal word-container">
+                                                <h5>Learnt words</h5>
+                                                {% for word in learnt_list %}
+                                                    {{ word_html(word['name'], word['label'],word['definition']) }}
+                                                {% endfor %}
+                                            </div>
+                                    {% endif %}
+                                        </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}

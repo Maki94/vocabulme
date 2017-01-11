@@ -1,3 +1,5 @@
+import codecs
+
 from API.WikipediaAPI import WikipediaAPI
 from classes import Word
 from config import RedisDatabase
@@ -17,7 +19,13 @@ class ExampleWikipediaModel(RedisDatabase):
             contents = wikis.get_contents()
             self._db.lpush(key, *contents)
             return contents
-        return [c.decode('utf-8') for c in contents]
+        c = list()
+        for content in contents:
+            if isinstance(content, bytes):
+                c.append(codecs.decode(content, "utf-8"))
+            else:
+                c.append(content)
+        return c
 
     @staticmethod
     def trigger_database(word_list: list, start=0, end=5):

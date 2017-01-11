@@ -49,7 +49,33 @@ class WordModel(Graph):
             print(e)
             return None
 
-    def get_next_word(self)->list():
+    @staticmethod
+    def parse_words(results) -> list:
+        word_list = list()
+        if results:
+            for element in results.elements:
+                word_name = element[0]['data']['name']
+                word_definition = element[0]['data']['definition']
+                word_label = WordModel().get_label(element[0]['metadata']['labels'])
+                w = Word(word_name, word_label, word_definition)
+                word_list.append(w)
+        return word_list
+
+    @staticmethod
+    def get_number_labels(word_list):
+        v = 0
+        n = 0
+        a = 0
+        for word in word_list:
+            if word.label == "Noun":
+                n += 1
+            elif word.label == "Verb":
+                v += 1
+            elif word.label == "Adjective":
+                a += 1
+        return [v, n, a]
+
+    def get_next_word(self) -> list():
         try:
             n = 4
             query = """
@@ -87,8 +113,8 @@ class WordModel(Graph):
     def is_matched(self, word):
         try:
             query = """
-                match (n:Word{name:'""" + word.name + """', definition:'""" + word.definition + """'}) return n limit 1
-            """
+                match (n:Word{name:"%s", definition:"%s"}) return n limit 1
+            """ % (word.name, word.definition)
             results = list(self._db.query(query, returns=client.Node))
             if results:
                 return True
