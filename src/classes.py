@@ -4,7 +4,7 @@ class User:
         self.password = password
 
     def __str__(self):
-        return self.get_dictionary()
+        return str(self.get_dictionary())
 
     def get_dictionary(self):
         return {'email': self.email, 'password': self.password}
@@ -17,7 +17,7 @@ class Word:
         self.definition = definition
 
     def __str__(self):
-        return self.get_dictionary()
+        return str(self.get_dictionary())
 
     def get_dictionary(self):
         return {'name': self.name, 'label': self.label, 'definition': self.definition}
@@ -30,7 +30,7 @@ class Wiki:
         self.categories = categories
 
     def __str__(self):
-        return self.get_dictionary()
+        return str(self.get_dictionary())
 
     def get_dictionary(self):
         return {'title': self.title, 'content': self.content, 'categories': self.categories}
@@ -42,7 +42,7 @@ class WikipediaExample:
         self.wikis = wikis
 
     def __str__(self):
-        return self.get_dictionary()
+        return str(self.get_dictionary())
 
     def get_contents(self):
         return [wiki.content for wiki in self.wikis]
@@ -57,7 +57,7 @@ class TwitterExample:
         self.statuses = statuses
 
     def __str__(self):
-        return self.get_dictionary()
+        return str(self.get_dictionary())
 
     def get_dictionary(self):
         return {'word': self.word.get_dictionary(), 'statuses': self.statuses}

@@ -11,6 +11,12 @@
                         <div class="icon-block">
                             <h2 class="center light-blue-text"><i class="material-icons">flash_on</i></h2>
                             <h4 id="word-name" class="center"></h4>
+                            <div id="word-definition-container">
+
+                            </div>
+                            {% if 'logged_in' in session %}
+                                <h5 class="right light-blue-text">7/10</h5>
+                            {% endif %}
                         </div>
                     </div>
 

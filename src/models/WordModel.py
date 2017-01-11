@@ -38,7 +38,7 @@ class WordModel(Graph):
     def get_words(self, n=12):
         try:
             query = """
-                MATCH (n)
+                MATCH (n:Word)
                 WHERE rand() < 0.01
                 return n limit """ + str(n) + """
             """
@@ -54,7 +54,7 @@ class WordModel(Graph):
             n = 4
             query = """
                 MATCH (n)
-                WHERE rand() < 0.01
+                WHERE rand() < 0.2
                 return n limit """ + str(n) + """
             """
             results = list(self._db.query(query, returns=client.Node))
@@ -97,3 +97,9 @@ class WordModel(Graph):
         except Exception as e:
             print(e)
             return False
+
+    @staticmethod
+    def get_label(labels) -> str:
+        for label in labels:
+            if WordModel._label != label:
+                return label

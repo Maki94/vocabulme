@@ -1,5 +1,6 @@
 import os
 import json
+import threading
 from functools import wraps
 
 import pygal
@@ -68,7 +69,7 @@ def get_all_users():
 @validate_json
 def get_next_words():
     if 'logged_in' in session:
-        words = WordModel().get_words(14)  # TODO: make heuristics
+        words = WordModel().get_words(14)
     else:
         words = WordModel().get_words(12)
 
@@ -80,10 +81,14 @@ def get_next_words():
 @validate_json
 def get_next_word():
     if 'logged_in' in session:
-        words = WordModel().get_next_word()  # TODO: make heuristics
+        words = WordModel().get_next_word()
     else:
         words = WordModel().get_next_word()
 
+    wiki_model = ExampleWikipediaModel()
+    t = threading.Thread(target=wiki_model.get_examples, args=(words, 0, 2))
+    t.start()
+    # t.join()
     word_list = [word.get_dictionary() for word in words]
     return parse_json(word_list)
 
@@ -95,9 +100,9 @@ def check_word(word_name, word_definition, word_label):
     state = word_model.is_matched(Word(name=word_name, definition=word_definition, label=word_label))
     print(state)
     if state:
-        return parse_json("true")
+        return parse_json(True)
     else:
-        return parse_json("false")
+        return parse_json(False)
 
 
 @app.route('/twitter-example/<word_name>/<word_definition>/<word_label>', methods=['POST'])
@@ -108,11 +113,24 @@ def twitter_get_examples(word_name, word_definition, word_label):
     return parse_json(examples.get_dictionary())
 
 
+@app.route('/seen-word/<word_name>/<word_definition>/<word_label>/<int:correct>', methods=['POST'])
+@validate_json
+def seen_word(word_name: str, word_definition: str, word_label: str, correct: int):
+    if 'logged_in' in session and 'email' in session:
+        email = session['email']
+        userModel = UserModel()
+        userModel.seen_word(user=User(email), word=Word(word_name, word_label, word_definition),
+                            correct=False if correct == 0 else True)
+        return parse_json(True)
+    else:
+        return parse_json(False)
+
+
 @app.route('/wikipedia-example/<word_name>/<word_definition>/<word_label>', methods=['POST'])
 @validate_json
 def wikipedia_get_examples(word_name, word_definition, word_label):
     wiki_model = ExampleWikipediaModel()
-    examples = wiki_model.get_examples(Word(word_name, word_label, word_definition), 0, 4)
+    examples = wiki_model.get_examples(Word(word_name, word_label, word_definition), 0, 2)
     return parse_json(examples)
 
 
@@ -128,6 +146,7 @@ def graph():
 
     graph_data = graph_pygal.render_data_uri()
     return render_template('graph.html', graph_data=graph_data)
+
 
 """
     User procedures

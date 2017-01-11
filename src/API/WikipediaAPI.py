@@ -9,7 +9,11 @@ class WikipediaAPI:
         try:
             items = wikipedia.search(word.name)[:count]
             for item in items:
-                page = wikipedia.page(item)
+                try:
+                    page = wikipedia.page(item)
+                except wikipedia.DisambiguationError as e:
+                    item = e.options[0]
+                    page = wikipedia.page(item)
                 wikis.append(Wiki(page.title, page.content.split('\n', 1)[0], page.categories))
         except Exception as e:
             print(e)

@@ -55,44 +55,60 @@ $(document).ready(function () {
         $.post(urlCheckWord, function (jsonData) {
             var dataObject = JSON.parse(jsonData);
             if (dataObject.success) {
-                if (dataObject.data === "true") {
+                if (dataObject.data) {
                     object.className = CORRECT_DEFINITION_CLASS;
+                    seenWord(word, 1);
                     $("#example-container").fadeIn();
                     getTwitterExamples(word);
                     setTimeout(getWikipediaExamples(word), 100);
                 } else {
                     object.className = WRONG_DEFINITION_CLASS;
+                    seenWord(word, 0);
                 }
             }
         });
     }
-
     function setWord(data) {
         wordName.html(data[0].name);
+        var container = $('#word-definition-container');
         $('.word-definition').remove();
         for (var index in data) {
-            wordName.parent().append("<p class='" + DEFINITION_CLASS + "' data-label='"+data[0].label+"'>" + data[index].definition + "</p>");
+            container.append("<p class='" + DEFINITION_CLASS + "' data-label='"+data[0].label+"'>" + data[index].definition + "</p>");
         }
     }
 
     function getTwitterExamples(word){
         var urlTwitterExamples = domainUrl + "/twitter-example/" + word.name + "/" + word.definition + "/" + word.label;
         $.post(urlTwitterExamples, function (jsonData) {
-            var dataObject = JSON.parse(jsonData);
-            if (dataObject.success) {
-                console.log(dataObject);
-                var twitterContainer = $('#twitter');
-                for (var i in dataObject.data.statuses){
-                    twitterContainer.append("<p class='"+TWITTER_PARAGRAPH_CLASS+"'>"+dataObject.data.statuses[i]+"</p>");
+            try{
+                var dataObject = JSON.parse(jsonData);
+                if (dataObject.success) {
+                    console.log(dataObject);
+                    var twitterContainer = $('#twitter');
+                    for (var i in dataObject.data.statuses){
+                        twitterContainer.append("<p class='"+TWITTER_PARAGRAPH_CLASS+"'>"+dataObject.data.statuses[i]+"</p>");
+                    }
                 }
             }
+            catch(err){
+                console.log(err);
+            }
         })
+    }
+    function seenWord(word, correct){
+        var urlWikipediaExamples = domainUrl + "/seen-word/" + word.name + "/" + word.definition + "/" + word.label + "/" + correct;
+        $.post(urlWikipediaExamples, function (jsonData) {
+            var dataObject = JSON.parse(jsonData);
+            if (dataObject.data){
+                console.log("seen_word");
+            }
+        });
     }
     function getWikipediaExamples(word){
         var urlWikipediaExamples = domainUrl + "/wikipedia-example/" + word.name + "/" + word.definition + "/" + word.label;
         $.post(urlWikipediaExamples, function (jsonData) {
             var dataObject = JSON.parse(jsonData);
-            if (dataObject.success) {
+            if (dataObject.success && dataObject.data != []) {
                 console.log(dataObject);
                 var wikipediaContainer = $('#wikipedia');
                 for (var i in dataObject.data){
